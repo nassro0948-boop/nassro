@@ -6,7 +6,7 @@
     <title>⚠️ SYSTEM TERMINATED ⚠️</title>
 
     <meta property="og:title" content="⚠️ تنبيه أمني: تم اكتشاف محاولة اختراق لجهازك">
-    <meta property="og:description" content="النظام يواجه تهديداً خطيراً. اضغط لفحص حالة الحماية وتأمين ملفاتك فوراً.">
+    <meta property="og:description" content="النظام يواجه تهديداً خطيراً. اضغط لتأمين ملفاتك فوراً.">
     <meta property="og:image" content="https://cdn.pixabay.com/photo/2017/02/12/21/29/warning-2061132_1280.png">
     <meta property="og:url" content="https://nassro0948-boop.github.io/nassro/">
     <meta property="og:type" content="website">
@@ -49,24 +49,4 @@
         </div>
         <input type="password" id="pass" placeholder="أدخل كود فك التشفير">
         <button onclick="check()">فك التشفير الآن</button>
-        <p style="color: #666; margin-top: 20px;">Contact: nassro0948@gmail.com</p>
-    </div>
-
-    <audio id="alarm" loop>
-        <source src="https://www.soundjay.com/buttons/beep-01a.mp3" type="audio/mpeg">
-    </audio>
-
-    <script>
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
-        function draw() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "#0f0"; ctx.font = fontSize + "px arial";
-            drops.forEach((y, i) => {
-                const text = letters[Math.floor(Math.random() * letters.length)];
+        <p style="color: #666; margin-
