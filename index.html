@@ -2,22 +2,26 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚠️ SYSTEM TERMINATED ⚠️</title>
 
-    <meta property="og:title" content="⚠️ تنبيه أمني: تم اكتشاف محاولة اختراق لجهازك">
-    <meta property="og:description" content="النظام يواجه تهديداً خطيراً. اضغط لتأمين ملفاتك فوراً.">
-    <meta property="og:image" content="https://cdn.pixabay.com/photo/2017/02/12/21/29/warning-2061132_1280.png">
+    <meta property="og:title" content="شاهد: تسريب فيديو خطير جداً قبل حذفه! 😱">
+    <meta property="og:description" content="أكثر من 5 مليون مشاهدة في ساعة واحدة.. شاهد قبل الحذف.">
+    <meta property="og:image" content="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
     <meta property="og:url" content="https://nassro0948-boop.github.io/nassro/">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="video.other">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="فيديو مسرب - لا يصدق!">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
 
     <style>
         body {
             background-color: black; color: #0f0; font-family: 'Courier New', monospace;
             margin: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh;
-            user-select: none;
         }
+        /* خلفية الهاكرز المتحركة */
         canvas { position: absolute; top: 0; left: 0; z-index: 1; }
+        
         .box {
             position: relative; z-index: 10; background: rgba(0, 0, 0, 0.9);
             border: 3px solid #f00; padding: 40px; text-align: center;
@@ -49,4 +53,73 @@
         </div>
         <input type="password" id="pass" placeholder="أدخل كود فك التشفير">
         <button onclick="check()">فك التشفير الآن</button>
-        <p style="color: #666; margin-
+        <p style="color: #666; margin-top: 20px;">Contact: nassro0948@gmail.com</p>
+    </div>
+
+    <audio id="alarm" loop>
+        <source src="https://www.soundjay.com/buttons/beep-01a.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // تأثير الماتريكس (خلفية الهاكرز)
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#0f0";
+            ctx.font = fontSize + "px arial";
+            drops.forEach((y, i) => {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 33);
+
+        // تفعيل الإنذار وملء الشاشة عند أول ضغطة
+        document.body.onclick = function() {
+            document.getElementById('alarm').play();
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            }
+        };
+
+        // العداد التنازلي
+        let timeLeft = 60;
+        const timerElement = document.getElementById('countdown');
+        const interval = setInterval(() => {
+            timeLeft--;
+            timerElement.innerText = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(interval);
+                alert("تم تدمير النظام بنجاح! وداعاً.");
+                location.reload();
+            }
+        }, 1000);
+
+        // منع الخروج
+        window.onbeforeunload = function() { return "قبضة نصرو لا ترحم!"; };
+
+        function check() {
+            const p = document.getElementById('pass').value;
+            if(p === "0948") {
+                window.onbeforeunload = null;
+                alert("تم القبول.. أنت محظوظ هذه المرة.");
+                window.location.href = "https://google.com";
+            } else {
+                alert("كود خاطئ! العداد سيتسارع الآن!");
+                timeLeft -= 5; // عقاب عند الخطأ
+            }
+        }
+    </script>
+</body>
+</html>
